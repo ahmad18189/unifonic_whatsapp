@@ -84,4 +84,16 @@ cd ~/frappe-bench
 bench --site your-staging.example.com run-tests --app unifonic_whatsapp
 ```
 
+### Local dev bench (Docker)
+
+A disposable Frappe v15 bench (MariaDB 10.6, Redis) with this repo mounted live. Credentials in `dev/` are throwaway local test values; nothing in it can reach Unifonic unless you configure an account with real keys and turn on live sending.
+
+```bash
+docker compose -f dev/docker-compose.yml up -d
+docker compose -f dev/docker-compose.yml exec bench bash /workspace/unifonic_whatsapp/dev/setup.sh
+docker compose -f dev/docker-compose.yml exec bench bash -lc 'cd ~/frappe-bench && bench --site uw.localhost run-tests --app unifonic_whatsapp'
+```
+
+Build the frontend on the host (`cd frontend && npm run build`), then `bench serve` inside the container serves the site at http://localhost:8010 (dev login `Administrator` / `admin`). Results are recorded in `docs/TEST_EVIDENCE.md`.
+
 Docs: `docs/SRS.md`, `docs/API_CONTRACT.md`, `docs/SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/OPERATIONS.md`, `docs/ACCEPTANCE_TESTS.md`, `docs/RELEASE_CHECKLIST.md`.
