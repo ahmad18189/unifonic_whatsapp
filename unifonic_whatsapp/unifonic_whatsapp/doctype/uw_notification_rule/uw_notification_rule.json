@@ -1,0 +1,98 @@
+{
+  "doctype": "DocType",
+  "name": "UW Notification Rule",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "hash",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "enabled",
+    "account",
+    "source_doctype",
+    "trigger",
+    "template",
+    "phone_field",
+    "parameter_fields_json"
+  ],
+  "fields": [
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "options": "UW Account",
+      "reqd": 1
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "ERPNext DocType",
+      "fieldtype": "Link",
+      "options": "DocType",
+      "reqd": 1
+    },
+    {
+      "fieldname": "trigger",
+      "label": "Trigger",
+      "fieldtype": "Select",
+      "options": "On Submit\nOn Cancel",
+      "reqd": 1,
+      "default": "On Submit"
+    },
+    {
+      "fieldname": "template",
+      "label": "Approved Template",
+      "fieldtype": "Link",
+      "options": "UW Template",
+      "reqd": 1
+    },
+    {
+      "fieldname": "phone_field",
+      "label": "Phone Field Name",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "description": "Exact fieldname on source document, containing E.164 number"
+    },
+    {
+      "fieldname": "parameter_fields_json",
+      "label": "Body Parameter Fieldnames JSON",
+      "fieldtype": "Code",
+      "options": "JSON",
+      "description": "Example: [\"customer_name\",\"name\"]"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

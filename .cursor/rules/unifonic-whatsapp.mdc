@@ -1,0 +1,5 @@
+---
+description: Frappe v15 Unifonic WhatsApp mandatory implementation guardrails
+alwaysApply: true
+---
+Read `AGENTS.md`, `docs/SRS.md`, `docs/API_CONTRACT.md` and `docs/SECURITY.md` before editing code. Follow Unifonic Conversations API v1, use server-side PublicId and Secret headers, never auto-retry uncertain POSTs, honor explicit opt-in / 24h windows, validate webhook applicationId, enforce Frappe roles plus row-level access, keep live sending disabled by default. Avoid monkey-patching ERPNext or exposing generic write endpoints. Require Frappe v15 staging tests plus actual provider sandbox validation before calling the feature complete.

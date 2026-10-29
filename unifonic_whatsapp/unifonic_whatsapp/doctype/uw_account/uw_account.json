@@ -1,0 +1,132 @@
+{
+  "doctype": "DocType",
+  "name": "UW Account",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "hash",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "account_label",
+    "enabled",
+    "live_sending_enabled",
+    "application_id",
+    "public_id",
+    "api_secret",
+    "webhook_token",
+    "company",
+    "default_country_code",
+    "default_language",
+    "api_base_url",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "account_label",
+      "label": "Account Label",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "live_sending_enabled",
+      "label": "Live Sending Enabled",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "OFF by default. Enable only after completing end-to-end sandbox checks."
+    },
+    {
+      "fieldname": "application_id",
+      "label": "Unifonic Application ID",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "public_id",
+      "label": "PublicId",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "api_secret",
+      "label": "Secret",
+      "fieldtype": "Password",
+      "reqd": 1
+    },
+    {
+      "fieldname": "webhook_token",
+      "label": "Webhook Token",
+      "fieldtype": "Password",
+      "reqd": 1,
+      "description": "Random URL secret. Never share or log; use 32+ random bytes."
+    },
+    {
+      "fieldname": "company",
+      "label": "Company (optional ERPNext)",
+      "fieldtype": "Data",
+      "description": "ERPNext Company name; kept as Data so a pure Frappe v15 install works."
+    },
+    {
+      "fieldname": "default_country_code",
+      "label": "Default Country Code",
+      "fieldtype": "Data",
+      "default": "966"
+    },
+    {
+      "fieldname": "default_language",
+      "label": "Default Language",
+      "fieldtype": "Data",
+      "default": "ar"
+    },
+    {
+      "fieldname": "api_base_url",
+      "label": "API Base URL",
+      "fieldtype": "Data",
+      "default": "https://apis.unifonic.com/v1",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Small Text"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "account_label",
+  "search_fields": "account_label,application_id"
+}

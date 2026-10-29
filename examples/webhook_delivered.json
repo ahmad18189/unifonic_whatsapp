@@ -1,0 +1,12 @@
+{
+  "messageId": "REPLACE_WITH_OUTBOUND_MESSAGE_ID",
+  "eventId": "sample-event-delivered-001",
+  "eventType": "message.delivered",
+  "applicationId": "REPLACE_WITH_UNIFONIC_APPLICATION_ID",
+  "conversationId": "sample-conversation-001",
+  "recipient": {
+    "channel": "whatsapp",
+    "contact": "+966500000001"
+  },
+  "timestamp": "2026-10-29T11:35:00.000Z"
+}

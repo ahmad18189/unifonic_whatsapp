@@ -1,0 +1,103 @@
+{
+  "doctype": "DocType",
+  "name": "UW Consent",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "hash",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "account",
+    "contact",
+    "consent_key",
+    "status",
+    "source",
+    "evidence",
+    "consent_at",
+    "updated_by"
+  ],
+  "fields": [
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "options": "UW Account",
+      "reqd": 1
+    },
+    {
+      "fieldname": "contact",
+      "label": "Phone",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "consent_key",
+      "label": "Consent Key",
+      "fieldtype": "Data",
+      "unique": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Opted In\nOpted Out",
+      "reqd": 1,
+      "default": "Opted Out",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "source",
+      "label": "Evidence Source",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "evidence",
+      "label": "Evidence Reference",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "consent_at",
+      "label": "Consent Timestamp",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "updated_by",
+      "label": "Updated By",
+      "fieldtype": "Link",
+      "options": "User"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

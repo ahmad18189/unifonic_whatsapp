@@ -1,0 +1,17 @@
+{
+  "messageId": "sample-in-001",
+  "eventId": "sample-event-001",
+  "eventType": "message.received",
+  "applicationId": "REPLACE_WITH_UNIFONIC_APPLICATION_ID",
+  "conversationId": "sample-conversation-001",
+  "sender": {
+    "channel": "whatsapp",
+    "contact": "+966500000001",
+    "name": "Test Customer"
+  },
+  "content": {
+    "text": "Hello from staging",
+    "type": "text"
+  },
+  "timestamp": "2026-10-29T11:30:00.000Z"
+}

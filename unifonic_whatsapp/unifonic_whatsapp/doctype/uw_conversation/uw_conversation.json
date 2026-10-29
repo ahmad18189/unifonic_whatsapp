@@ -1,0 +1,144 @@
+{
+  "doctype": "DocType",
+  "name": "UW Conversation",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "hash",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "account",
+    "conversation_key",
+    "contact",
+    "customer_name",
+    "assigned_to",
+    "status",
+    "last_inbound_at",
+    "last_message_at",
+    "last_message_preview",
+    "external_conversation_id",
+    "reference_doctype",
+    "reference_name"
+  ],
+  "fields": [
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "options": "UW Account",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "conversation_key",
+      "label": "Conversation Key",
+      "fieldtype": "Data",
+      "unique": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "contact",
+      "label": "Phone Number",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "customer_name",
+      "label": "Customer Name",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "assigned_to",
+      "label": "Assigned Agent",
+      "fieldtype": "Link",
+      "options": "User",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Open\nResolved",
+      "default": "Open",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_inbound_at",
+      "label": "Last Inbound",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "last_message_at",
+      "label": "Last Message",
+      "fieldtype": "Datetime",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "last_message_preview",
+      "label": "Preview",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "external_conversation_id",
+      "label": "Unifonic Conversation ID",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "reference_doctype",
+      "label": "Reference DocType",
+      "fieldtype": "Link",
+      "options": "DocType"
+    },
+    {
+      "fieldname": "reference_name",
+      "label": "Reference Name",
+      "fieldtype": "Dynamic Link",
+      "options": "reference_doctype"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Agent",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "report": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "contact",
+  "search_fields": "contact,customer_name"
+}

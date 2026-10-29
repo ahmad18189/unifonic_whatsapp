@@ -1,0 +1,11 @@
+{
+  "recipient": {
+    "contact": "+966500000001",
+    "channel": "whatsapp"
+  },
+  "content": {
+    "type": "text",
+    "text": "Hello from the Frappe staging environment"
+  },
+  "referenceId": "REPLACE_WITH_UW_MESSAGE_NAME"
+}

@@ -1,0 +1,25 @@
+{
+  "recipient": {
+    "contact": "+966500000001",
+    "channel": "whatsapp"
+  },
+  "content": {
+    "type": "template",
+    "name": "sandbox_account_update",
+    "language": {
+      "code": "en"
+    },
+    "components": [
+      {
+        "type": "body",
+        "parameters": [
+          {
+            "type": "text",
+            "text": "Test Customer"
+          }
+        ]
+      }
+    ]
+  },
+  "referenceId": "REPLACE_WITH_UW_MESSAGE_NAME"
+}

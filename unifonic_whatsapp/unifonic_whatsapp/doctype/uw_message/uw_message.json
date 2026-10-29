@@ -1,0 +1,173 @@
+{
+  "doctype": "DocType",
+  "name": "UW Message",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "hash",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "idempotency_key",
+    "conversation",
+    "account",
+    "direction",
+    "message_type",
+    "text",
+    "content_json",
+    "external_message_id",
+    "reference_id",
+    "status",
+    "error_details",
+    "attempt_count",
+    "sent_at",
+    "received_at",
+    "source_doctype",
+    "source_name"
+  ],
+  "fields": [
+    {
+      "fieldname": "idempotency_key",
+      "label": "Internal Idempotency Key",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "unique": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "conversation",
+      "label": "Conversation",
+      "fieldtype": "Link",
+      "options": "UW Conversation",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "options": "UW Account",
+      "reqd": 1
+    },
+    {
+      "fieldname": "direction",
+      "label": "Direction",
+      "fieldtype": "Select",
+      "options": "Inbound\nOutbound",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "message_type",
+      "label": "Message Type",
+      "fieldtype": "Select",
+      "options": "text\ntemplate\nimage\nfile\naudio\nvideo\nlocation\noption\nsticker\nother",
+      "reqd": 1,
+      "default": "text"
+    },
+    {
+      "fieldname": "text",
+      "label": "Message Text",
+      "fieldtype": "Long Text"
+    },
+    {
+      "fieldname": "content_json",
+      "label": "Content JSON",
+      "fieldtype": "Long Text",
+      "hidden": 1
+    },
+    {
+      "fieldname": "external_message_id",
+      "label": "Unifonic Message ID",
+      "fieldtype": "Data",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reference_id",
+      "label": "Reference ID",
+      "fieldtype": "Data",
+      "unique": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Received\nQueued\nSending\nSubmitted\nSent\nDelivered\nRead\nFailed\nUnknown\nDry Run",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "error_details",
+      "label": "Error Details",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "attempt_count",
+      "label": "Attempt Count",
+      "fieldtype": "Int",
+      "default": "0"
+    },
+    {
+      "fieldname": "sent_at",
+      "label": "Sent At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "received_at",
+      "label": "Received At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "source_doctype",
+      "label": "Source DocType",
+      "fieldtype": "Link",
+      "options": "DocType"
+    },
+    {
+      "fieldname": "source_name",
+      "label": "Source Name",
+      "fieldtype": "Dynamic Link",
+      "options": "source_doctype"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Agent",
+      "read": 1,
+      "write": 0,
+      "create": 0,
+      "delete": 0,
+      "report": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "search_fields": "text,external_message_id"
+}

@@ -1,0 +1,1 @@
+recursive-include unifonic_whatsapp *.json *.html *.py *.js *.css

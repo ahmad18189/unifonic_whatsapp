@@ -1,0 +1,118 @@
+{
+  "doctype": "DocType",
+  "name": "UW Webhook Event",
+  "module": "Unifonic Whatsapp",
+  "custom": 0,
+  "autoname": "field:event_key",
+  "engine": "InnoDB",
+  "is_submittable": 0,
+  "track_changes": 1,
+  "field_order": [
+    "event_key",
+    "account",
+    "event_id",
+    "event_type",
+    "external_message_id",
+    "payload_json",
+    "status",
+    "attempts",
+    "error_details",
+    "received_at",
+    "processed_at"
+  ],
+  "fields": [
+    {
+      "fieldname": "event_key",
+      "fieldtype": "Data",
+      "label": "Event Key",
+      "reqd": 1,
+      "unique": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "options": "UW Account",
+      "reqd": 1
+    },
+    {
+      "fieldname": "event_id",
+      "label": "External Event ID",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "event_type",
+      "label": "Event Type",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "external_message_id",
+      "label": "Unifonic Message ID",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "payload_json",
+      "label": "Payload JSON",
+      "fieldtype": "Long Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "status",
+      "label": "Status",
+      "fieldtype": "Select",
+      "options": "Received\nProcessed\nPending Match\nFailed",
+      "default": "Received"
+    },
+    {
+      "fieldname": "attempts",
+      "label": "Attempts",
+      "fieldtype": "Int",
+      "default": "0"
+    },
+    {
+      "fieldname": "error_details",
+      "label": "Error Details",
+      "fieldtype": "Small Text"
+    },
+    {
+      "fieldname": "received_at",
+      "label": "Received At",
+      "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "processed_at",
+      "label": "Processed At",
+      "fieldtype": "Datetime"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    },
+    {
+      "role": "Unifonic Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 0,
+      "report": 1,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "share": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}
