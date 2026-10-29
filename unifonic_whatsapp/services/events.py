@@ -18,6 +18,14 @@ STATUS_EVENTS = {
 }
 
 
+def enqueue_process(event_name, after_commit=False):
+    # One queued/running job per event: webhook redelivery and the recovery scheduler
+    # must not process the same event concurrently.
+    frappe.enqueue("unifonic_whatsapp.services.events.process", event_name=event_name,
+                   queue="short", enqueue_after_commit=after_commit,
+                   job_id=f"uw_event::{event_name}", deduplicate=True)
+
+
 def process(event_name):
     event = frappe.get_doc("UW Webhook Event", event_name)
     if event.status == "Processed" or (event.attempts or 0) >= 8:

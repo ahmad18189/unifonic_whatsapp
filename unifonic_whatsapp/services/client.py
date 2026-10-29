@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urljoin
 import frappe
 
-BASE = "https://apis.unifonic.com/v1/"
+DEFAULT_BASE_URL = "https://apis.unifonic.com/v1"
 
 
 class UnifonicError(Exception):
@@ -20,6 +20,8 @@ class UnifonicClient:
         if not account.enabled:
             raise UnifonicError("Account disabled")
         self.account = account
+        # Validated on UW Account save; a sandbox host is configured there, never guessed here.
+        self.base = (account.get("api_base_url") or DEFAULT_BASE_URL).rstrip("/") + "/"
         self.session = requests.Session()
         self.session.headers.update({
             "PublicId": account.public_id,
@@ -32,7 +34,7 @@ class UnifonicClient:
         if not path.startswith("/"):
             path = "/" + path
         try:
-            res = self.session.request(method, urljoin(BASE, path.lstrip("/")),
+            res = self.session.request(method, urljoin(self.base, path.lstrip("/")),
                                        json=payload, params=params, timeout=(5, 20),
                                        allow_redirects=False)
         except requests.RequestException as exc:

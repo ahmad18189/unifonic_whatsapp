@@ -9,19 +9,27 @@ import json
 
 import frappe
 from frappe.utils import now_datetime
+from unifonic_whatsapp.services.events import enqueue_process
 
 MAX_BYTES = 256 * 1024
 
 
 @frappe.whitelist(allow_guest=True, methods=["POST"])
-def receive(account=None, token=None):
+def receive():
     req = frappe.local.request
     if req.method != "POST":
         frappe.throw("POST only", frappe.PermissionError)
+    # Frappe v15 builds form_dict from the JSON body alone and drops the query string,
+    # so the callback credentials must be read from the URL args directly.
+    account = req.args.get("account")
+    token = req.args.get("token")
     if not account or not token:
         frappe.throw("Unauthorized webhook", frappe.PermissionError)
+    # Same response for unknown and misconfigured accounts: no account enumeration.
+    if not frappe.db.exists("UW Account", account):
+        frappe.throw("Unauthorized webhook", frappe.PermissionError)
     settings = frappe.get_doc("UW Account", account)
-    expected = settings.get_password("webhook_token") or ""
+    expected = settings.get_password("webhook_token", raise_exception=False) or ""
     if not settings.enabled or len(expected) < 32 or not hmac.compare_digest(expected, str(token)):
         frappe.throw("Unauthorized webhook", frappe.PermissionError)
     raw = req.get_data(cache=True)
@@ -53,6 +61,5 @@ def receive(account=None, token=None):
             event.insert(ignore_permissions=True)
         except frappe.DuplicateEntryError:
             pass
-    frappe.enqueue("unifonic_whatsapp.services.events.process", event_name=key,
-                   queue="short", enqueue_after_commit=True)
+    enqueue_process(key, after_commit=True)
     return {"received": True}
