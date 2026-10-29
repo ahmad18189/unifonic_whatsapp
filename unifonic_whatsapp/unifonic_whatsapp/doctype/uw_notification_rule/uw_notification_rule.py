@@ -1,11 +1,15 @@
 import json
 import frappe
 from frappe.model.document import Document
+from unifonic_whatsapp.integrations.erpnext import supported_doctypes
 
 class UWNotificationRule(Document):
     def validate(self):
         if not frappe.db.exists("DocType", self.source_doctype):
             frappe.throw("Unknown source DocType")
+        supported = supported_doctypes()
+        if self.source_doctype not in supported:
+            frappe.throw(f"Notifications are only wired for: {', '.join(sorted(supported))}")
         meta = frappe.get_meta(self.source_doctype)
         if not meta.has_field(self.phone_field):
             frappe.throw("Phone field must exist on source DocType")

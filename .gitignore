@@ -8,3 +8,6 @@ frontend/dist/
 .env
 .DS_Store
 myvar.txt
+unifonic_whatsapp/public/frontend/
+unifonic_whatsapp/www/unifonic-inbox.html
+*.tsbuildinfo

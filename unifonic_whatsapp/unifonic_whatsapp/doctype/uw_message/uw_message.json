@@ -21,6 +21,7 @@
     "error_details",
     "attempt_count",
     "sent_at",
+    "last_reconciled_at",
     "received_at",
     "source_doctype",
     "source_name"
@@ -110,6 +111,12 @@
       "fieldname": "sent_at",
       "label": "Sent At",
       "fieldtype": "Datetime"
+    },
+    {
+      "fieldname": "last_reconciled_at",
+      "label": "Last Reconciled At",
+      "fieldtype": "Datetime",
+      "read_only": 1
     },
     {
       "fieldname": "received_at",

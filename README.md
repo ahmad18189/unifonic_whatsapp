@@ -47,7 +47,7 @@ The Vite plugin writes `unifonic_whatsapp/www/unifonic-inbox.html` and frontend 
 1. Log in as System Manager. Go to **Unifonic WhatsApp > UW Account > New**.
 2. Create account with `Account Label`, provider `Application ID` (not PublicId), `PublicId`, and `Secret` obtained in **Unifonic Console > Developers > Applications > WhatsApp > Request Keys**.
 3. Create a **unique high-entropy webhook token** (example shell command: `python -c 'import secrets; print(secrets.token_urlsafe(48))'`). Paste it into the Account Password field. Keep it out of code and screenshots.
-4. Leave `Live Sending Enabled` **OFF** initially. Turn `Enabled` ON when the secret fields and application ID are configured.
+4. Leave `Live Sending Enabled` **OFF** initially. Turn `Enabled` ON when the secret fields and application ID are configured. `API Base URL` defaults to production; only a System Manager may point it at a Unifonic-provided sandbox host, and only while live sending is off.
 5. In Unifonic Channels > WhatsApp > Webhook settings, configure inbound and message-delivery event URLs using the following scheme:
 
 ```

@@ -91,7 +91,7 @@
       "label": "API Base URL",
       "fieldtype": "Data",
       "default": "https://apis.unifonic.com/v1",
-      "read_only": 1
+      "description": "HTTPS base URL of the Unifonic Conversations API. Only a System Manager may change it, and only while live sending is off."
     },
     {
       "fieldname": "notes",

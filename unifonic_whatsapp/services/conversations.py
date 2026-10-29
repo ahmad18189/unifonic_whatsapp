@@ -16,7 +16,10 @@ def find_or_create(account, phone, name=None):
         doc.insert(ignore_permissions=True)
         return doc
     except frappe.DuplicateEntryError:
-        found = frappe.db.get_value("UW Conversation", {"conversation_key": key}, "name")
+        # Locking read: under REPEATABLE READ a plain read would reuse this transaction's
+        # snapshot and miss the row the concurrent worker just committed.
+        found = frappe.db.get_value("UW Conversation", {"conversation_key": key}, "name",
+                                    for_update=True)
         if not found:
             raise
         return frappe.get_doc("UW Conversation", found)

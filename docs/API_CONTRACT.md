@@ -34,7 +34,7 @@ Unifonic documents `eventId`, `eventType`, `applicationId`, `messageId`, `conver
 - **Webhook signature:** no HMAC/signature algorithm established from supplied provider docs. This implementation uses URL secret + application matching; confirm with Unifonic.
 - **POST success response envelope:** do not hardcode `messageId` top-level. Code accepts common wrapper shapes but captures confirmation via webhook/status as fallback.
 - **Idempotency:** `referenceId` is documented for status retrieval, not as a guarantee of deduplicated provider delivery.
-- **Sandbox-specific base URL or test credentials:** obtain from your Unifonic account. Do not infer a fake sandbox host.
+- **Sandbox-specific base URL or test credentials:** obtain from your Unifonic account. Do not infer a fake sandbox host. Once confirmed, a System Manager sets it in UW Account `API Base URL` (https only, live sending must be off); default is the production base above.
 - **Webhook retry behavior:** not specified reliably. Journal and replay locally.
 
 ## Official references
