@@ -1,0 +1,179 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"uwhead00\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Unifonic WhatsApp</b></span>\", \"col\": 12}}, {\"id\": \"uwshor00\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Open Inbox\", \"col\": 3}}, {\"id\": \"uwshor01\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Open Conversations\", \"col\": 3}}, {\"id\": \"uwshor02\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Messages Needing Review\", \"col\": 3}}, {\"id\": \"uwshor03\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Webhook Events Failed\", \"col\": 3}}, {\"id\": \"uwspac00\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"uwhead01\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Records</b></span>\", \"col\": 12}}, {\"id\": \"uwcard00\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}, {\"id\": \"uwcard01\", \"type\": \"card\", \"data\": {\"card_name\": \"Compliance\", \"col\": 4}}, {\"id\": \"uwcard02\", \"type\": \"card\", \"data\": {\"card_name\": \"Conversations\", \"col\": 4}}, {\"id\": \"uwcard03\", \"type\": \"card\", \"data\": {\"card_name\": \"Monitoring\", \"col\": 4}}]",
+ "creation": "2026-10-30 11:51:00.313376",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "icon": "message",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Unifonic WhatsApp",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Account",
+   "link_count": 0,
+   "link_to": "UW Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Template",
+   "link_count": 0,
+   "link_to": "UW Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Notification Rule",
+   "link_count": 0,
+   "link_to": "UW Notification Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compliance",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Consent",
+   "link_count": 0,
+   "link_to": "UW Consent",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Conversations",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Conversation",
+   "link_count": 0,
+   "link_to": "UW Conversation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Message",
+   "link_count": 0,
+   "link_to": "UW Message",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Monitoring",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "UW Webhook Event",
+   "link_count": 0,
+   "link_to": "UW Webhook Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-30 11:51:00.313376",
+ "modified_by": "Administrator",
+ "module": "Unifonic Whatsapp",
+ "name": "Unifonic WhatsApp",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Unifonic Manager"
+  },
+  {
+   "role": "Unifonic Agent"
+  }
+ ],
+ "sequence_id": 50.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "",
+   "label": "Open Inbox",
+   "type": "URL",
+   "url": "/unifonic-inbox"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "format": "{} Open",
+   "label": "Open Conversations",
+   "link_to": "UW Conversation",
+   "stats_filter": "[[\"UW Conversation\", \"status\", \"=\", \"Open\", false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "format": "{} Unknown/Failed",
+   "label": "Messages Needing Review",
+   "link_to": "UW Message",
+   "stats_filter": "[[\"UW Message\", \"status\", \"in\", [\"Unknown\", \"Failed\"], false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "format": "{} Failed",
+   "label": "Webhook Events Failed",
+   "link_to": "UW Webhook Event",
+   "stats_filter": "[[\"UW Webhook Event\", \"status\", \"in\", [\"Failed\", \"Pending Match\"], false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Unifonic WhatsApp"
+}

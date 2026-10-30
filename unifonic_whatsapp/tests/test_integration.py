@@ -320,6 +320,14 @@ class TestJobs(UWTestCase):
                                     "name", for_update=True)
         self.assertEqual(found, convo.name)
 
+    def test_workspace_installed_and_links_resolve(self):
+        ws = frappe.get_doc("Workspace", "Unifonic WhatsApp")
+        targets = [l.link_to for l in ws.links if l.type == "Link"]
+        targets += [s.link_to for s in ws.shortcuts if s.type == "DocType"]
+        self.assertTrue(targets)
+        for doctype in targets:
+            self.assertTrue(frappe.db.exists("DocType", doctype), doctype)
+
     def test_base_url_change_needs_live_sending_off(self):
         self.account.live_sending_enabled = 1
         self.account.api_base_url = "https://sandbox.example.test/v1"
